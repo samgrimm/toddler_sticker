@@ -1,0 +1,32 @@
+<%= form_with(model: sticker, local: true) do |form| %>
+  <% if sticker.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(sticker.errors.count, "error") %> prohibited this sticker from being saved:</h2>
+
+      <ul>
+        <% sticker.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :icon %>
+    <%= form.text_field :icon %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rating %>
+    <%= form.check_box :rating %>
+  </div>
+
+  <div class="field">
+    <%= form.label :goal_id %>
+    <%= form.text_field :goal_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
